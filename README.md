@@ -1,8 +1,8 @@
 # Pedestrian-Traffic-Light-System
 This project implements a smart pedestrian-crossing traffic light with adaptive timing, audible feedback, LCD display messages, and vehicle-violation detection.
 
-Main Features
-🔘 Pedestrian Button Logic
+##Main Features
+###Pedestrian Button Logic
 
 When the pedestrian button is pressed, the system emits an audible confirmation beep.
 
@@ -14,7 +14,7 @@ Higher traffic flow → longer waiting time
 
 Lower traffic flow → shorter waiting time
 
-🚶 Pedestrian Light Activation
+### Pedestrian Light Activation
 
 When the pedestrian light switches to green:
 
@@ -24,7 +24,7 @@ The LCD display shows a message informing that it is safe to cross.
 
 The LCD also displays a countdown timer indicating how long remains before the light changes.
 
-🔊 Adaptive Audible Signaling
+### Adaptive Audible Signaling
 
 While the pedestrian light is green, the system emits periodic beeps.
 
@@ -36,7 +36,7 @@ Higher traffic flow → shorter pedestrian-green time
 
 Lower traffic flow → longer pedestrian-green time
 
-🚗 Red-Light Violation Detection
+### Red-Light Violation Detection
 
 If a vehicle crosses during the red light:
 
