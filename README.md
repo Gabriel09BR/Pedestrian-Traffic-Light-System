@@ -18,11 +18,11 @@ This project implements a smart pedestrian-crossing traffic light with adaptive 
 
 - When the pedestrian light switches to green:
 
-- A sound signal is emitted.
+  - A sound signal is emitted.
 
-- The LCD display shows a message informing that it is safe to cross.
+  - The LCD display shows a message informing that it is safe to cross.
 
-- The LCD also displays a countdown timer indicating how long remains before the light changes.
+  - The LCD also displays a countdown timer indicating how long remains before the light changes.
 
 ### Adaptive Audible Signaling
 
@@ -32,16 +32,16 @@ This project implements a smart pedestrian-crossing traffic light with adaptive 
 
 - The green-light duration ranges from 10 to 40 seconds, depending on traffic conditions:
 
-- Higher traffic flow → shorter pedestrian-green time
+  - Higher traffic flow → shorter pedestrian-green time
 
-- Lower traffic flow → longer pedestrian-green time
+  - Lower traffic flow → longer pedestrian-green time
 
 ### Red-Light Violation Detection
 
 - If a vehicle crosses during the red light:
 
-- A photo is automatically captured.
+  - A photo is automatically captured.
 
-- A variable named fines is incremented.
+  - A variable named fines is incremented.
 
-- The updated fine count is displayed on the LCD.
+  - The updated fine count is displayed on the LCD.
