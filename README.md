@@ -1,8 +1,9 @@
 # Pedestrian-Traffic-Light-System
 This project implements a smart pedestrian-crossing traffic light with adaptive timing, audible feedback, LCD display messages, and vehicle-violation detection.
 
-##Main Features
-###Pedestrian Button Logic
+## Main Features
+
+### Pedestrian Button Logic
 
 When the pedestrian button is pressed, the system emits an audible confirmation beep.
 
