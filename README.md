@@ -40,8 +40,8 @@ This project implements a smart pedestrian-crossing traffic light with adaptive 
 
 - If a vehicle crosses during the red light:
 
-  - A photo is automatically captured.
+  - A LED flashes to simulate a photo capture (no real image is taken).
 
   - A variable named fines is incremented.
 
-  - The updated fine count is displayed on the LCD.
+  
