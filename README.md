@@ -7,13 +7,12 @@ This project implements a smart pedestrian-crossing traffic light with adaptive 
 
 - When the pedestrian button is pressed, the system emits an audible confirmation beep.
 
-- After the button press, the pedestrian traffic light waits a random delay between 10 and 60 seconds before switching to green.
+- After the button press, the pedestrian traffic light waits between 10 and 60 seconds before switching to green.
 
-- This delay depends on the current vehicle traffic flow:
+- This time depends on the current vehicle traffic flow:
+-- Higher traffic flow → longer waiting time
 
-- Higher traffic flow → longer waiting time
-
-- Lower traffic flow → shorter waiting time
+-- Lower traffic flow → shorter waiting time
 
 ### Pedestrian Light Activation
 
