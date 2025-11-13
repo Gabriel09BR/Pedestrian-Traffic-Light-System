@@ -44,4 +44,19 @@ This project implements a smart pedestrian-crossing traffic light with adaptive 
 
   - A variable named fines is incremented.
 
-  
+  ## 🚗 Traffic Flow Measurement
+
+In this prototype, the traffic flow is simulated using a potentiometer connected to an analog input, which is mapped to a normalized flow value (0.0–1.0). This flow level affects:
+
+- The waiting time before the pedestrian light turns green (10–60 seconds)
+- The duration of the pedestrian green phase (10–40 seconds)
+
+In a real system, traffic flow could be measured using:
+
+- An infrared barrier to count vehicles
+- An ultrasonic sensor to detect vehicle presence and occupancy time
+- Magnetic or inductive sensors embedded in the pavement
+- A computer vision system using a camera
+
+The measured flow is then converted into a normalized value used by the controller logic.
+
