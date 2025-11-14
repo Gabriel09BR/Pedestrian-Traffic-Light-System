@@ -20,7 +20,7 @@ All subsystems run **simultaneously** using a **non-blocking architecture** base
 ## 🎛️ Pedestrian Button Logic
 - Pressing the button triggers:
   - A **confirmation double-beep**
-  - A validated crossing request (debounced)
+  - A validated crossing request
 - The waiting time before green varies from **10 to 60 seconds**
   - **More traffic = longer waiting time**
   - **Less traffic = shorter waiting time**
@@ -53,13 +53,11 @@ While pedestrian light is green:
 
 ## 🚨 Red-Light Violation Detection
 
-If a vehicle (simulated by Bot2) crosses while traffic light is red:
+If a vehicle (simulated by button) crosses while traffic light is red:
 
 - An RGB LED flashes **white** to simulate a photo capture  
   *(no real camera is used)*
-- The **fines** counter is incremented
-- Debounced, so each violation counts only once
-- A visual flash is triggered using a mini-FSM  
+- The **fines** counter is incremented 
 
 ---
 
