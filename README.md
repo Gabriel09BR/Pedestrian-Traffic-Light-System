@@ -138,5 +138,3 @@ This architecture keeps the whole system responsive.
 - Add Wi-Fi dashboard for remote monitoring
 
 
-)
-
