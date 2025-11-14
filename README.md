@@ -10,62 +10,88 @@ This project implements a **pedestrian-crossing traffic light** using an **ESP32
 
 Ideal for educational use, embedded systems learning, and smart-city prototyping.
 
-## Main Features
 
-### Pedestrian Button Logic
+All subsystems run **simultaneously** using a **non-blocking architecture** based on FSMs.
 
-- When the pedestrian button is pressed, the system emits an audible confirmation beep.
+---
 
-- After the button press, the pedestrian traffic light waits between 10 and 60 seconds before switching to green.
+# ⚙️ Main Features
 
-- This time depends on the current vehicle traffic flow:
-  - Higher traffic flow → longer waiting time
+## 🎛️ Pedestrian Button Logic
+- Pressing the button triggers:
+  - A **confirmation double-beep**
+  - A validated crossing request (debounced)
+- The waiting time before green varies from **10 to 60 seconds**
+  - **More traffic = longer waiting time**
+  - **Less traffic = shorter waiting time**
 
-  - Lower traffic flow → shorter waiting time
+---
 
-### Pedestrian Light Activation
+## 🟢 Pedestrian Signal Phase
 
-- When the pedestrian light switches to green:
+When pedestrian light switches to *green*:
 
-  - A sound signal is emitted.
+- A **sound signal** is generated
+- OLED displays: *"Safe to cross"*
+- A **countdown timer** shows remaining crossing time
+- Pedestrian green lasts **10–40 seconds**
+  - **More traffic = shorter crossing window**
+  - **Less traffic = longer crossing window**
 
-  - The LCD display shows a message informing that it is safe to cross.
+---
 
-  - The LCD also displays a countdown timer indicating how long remains before the light changes.
+## 🔊 Adaptive Audible Signaling
+While pedestrian light is green:
 
-### Adaptive Audible Signaling
+- The buzzer emits **periodic beeps**
+- Beep interval decreases as time runs out  
+  → Helps visually impaired users estimate remaining time  
+- Non-blocking PWM-based audio pulses  
+  → System remains responsive
 
-- While the pedestrian light is green, the system emits periodic beeps.
+---
 
-- The beep frequency increases as the green phase ends, helping visually impaired users estimate the remaining time.
+## 🚨 Red-Light Violation Detection
 
-- The green-light duration ranges from 10 to 40 seconds, depending on traffic conditions:
+If a vehicle (simulated by Bot2) crosses while traffic light is red:
 
-  - Higher traffic flow → shorter pedestrian-green time
+- An RGB LED flashes **white** to simulate a photo capture  
+  *(no real camera is used)*
+- The **fines** counter is incremented
+- Debounced, so each violation counts only once
+- A visual flash is triggered using a mini-FSM  
 
-  - Lower traffic flow → longer pedestrian-green time
+---
 
-### Red-Light Violation Detection
+# 🚗 Traffic Flow Measurement
 
-- If a vehicle crosses during the red light:
+Traffic flow is **simulated via a potentiometer** connected to ADC:
 
-  - A LED flashes to simulate a photo capture (no real image is taken).
+| Value | Meaning |
+|------|---------|
+| 0.0  | No cars / light traffic |
+| 1.0  | Heavy traffic |
 
-  - A variable named fines is incremented.
+Flow affects:
 
-  ## 🚗 Traffic Flow Measurement
+- ⏱️ **Wait before pedestrian green**  
+  → 10–60 seconds  
+- 🟢 **Pedestrian green duration**  
+  → 10–40 seconds  
 
-In this prototype, the traffic flow is simulated using a potentiometer connected to an analog input, which is mapped to a normalized flow value (0.0–1.0). This flow level affects:
+### In a real system, flow could be measured using:
 
-- The waiting time before the pedestrian light turns green (10–60 seconds)
-- The duration of the pedestrian green phase (10–40 seconds)
+- 🔦 Infrared vehicle counters  
+- 📡 Ultrasonic presence sensors  
+- 🧲 Magnetic/inductive road sensors  
+- 🎥 Computer vision
 
-In a real system, traffic flow could be measured using:
+The recorded flow is mapped to a 0.0–1.0 value used by the FSM.
 
-- An infrared barrier to count vehicles
-- An ultrasonic sensor to detect vehicle presence and occupancy time
-- Magnetic or inductive sensors embedded in the pavement
-- A computer vision system using a camera
+---
 
-The measured flow is then converted into a normalized value used by the controller logic.
+# 🧠 Finite State Machines (FSMs)
 
+This project uses multiple **non-blocking FSMs** running in parallel:
+
+### Traffic Light FSM
