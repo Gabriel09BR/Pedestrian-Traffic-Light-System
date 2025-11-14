@@ -91,3 +91,35 @@ The recorded flow is mapped to a 0.0–1.0 value used by the FSM.
 #  Finite State Machines (FSMs)
 
 This project uses multiple **non-blocking FSMs** running in parallel.
+ALL these FSMs run without `sleep` blocking the main loop.  
+This architecture keeps the whole system responsive.
+
+---
+
+# 🖥️ Hardware Used
+
+- **ESP32 Dev Module**
+- **SSD1306 OLED** (I2C: 0x3C)
+- **Passive Buzzer** (PWM controlled)
+- **RGB LED**
+- **Pedestrian LEDs (Red/Green)**
+- **Traffic LEDs (Red/Yellow/Green)**
+- **Push Button (Pedestrian)**
+- **Push Button (Violation Simulator)**
+- **Potentiometer** (traffic flow input)
+
+---
+
+
+
+# 📈 Future Improvements
+
+- Add real traffic sensors (IR, camera, etc.)
+- Log violations to an SD card
+- Add Wi-Fi dashboard for remote monitoring
+- Implement FreeRTOS version for higher concurrency
+- Add energy-saving mode for nighttime
+
+
+)
+
