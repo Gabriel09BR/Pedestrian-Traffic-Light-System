@@ -1,5 +1,14 @@
-# Pedestrian-Traffic-Light-System
-This project implements a smart pedestrian-crossing traffic light with adaptive timing, audible feedback, LCD display messages, and vehicle-violation detection.
+# 🚦 Pedestrian Traffic Light System (ESP32 + MicroPython)
+This project implements a **smart pedestrian-crossing traffic light** using an **ESP32** and **MicroPython**, featuring:
+
+- Adaptive timing based on traffic flow  
+- Audible signaling (PWM buzzer)
+- OLED LCD messages  
+- Red-light violation detection  
+- RGB LED flash simulating picture capture  
+- Fully non-blocking Finite State Machines (FSMs)
+
+Ideal for educational use, embedded systems learning, and smart-city prototyping.
 
 ## Main Features
 
