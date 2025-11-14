@@ -1,5 +1,5 @@
 # 🚦 Pedestrian Traffic Light System (ESP32 + MicroPython)
-This project implements a **smart pedestrian-crossing traffic light** using an **ESP32** and **MicroPython**, featuring:
+This project implements a **pedestrian-crossing traffic light** using an **ESP32** and **MicroPython**, featuring:
 
 - Adaptive timing based on traffic flow  
 - Audible signaling (PWM buzzer)
