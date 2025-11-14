@@ -16,20 +16,22 @@ All subsystems run **simultaneously** using a **non-blocking architecture** base
 ## 🧱 System Block Diagram
 
 ```mermaid
-flowchart LR
-    BTN[Pedestrian Button<br/>Bot1] -->|Request to cross| CTRL[ESP32<br/>Control Logic (FSM)]
-    POT[Potentiometer<br/>Traffic Flow] -->|Flow level 0.0–1.0| CTRL
+flowchart TB
+    subgraph ESP32
+        CORE[ESP32<br/>MicroPython FSMs]
+    end
 
-    CTRL -->|Red/Yellow/Green| TL[Traffic Light LEDs]
-    CTRL -->|Red/Green| PL[Pedestrian LEDs]
-    CTRL -->|Status + Countdown| OLED[OLED Display]
-    CTRL -->|Confirmation + Crossing Beeps| BUZZ[Buzzer (PWM)]
-    CTRL -->|Violation Event| FLASH[RGB LED<br/>White Flash]
+    BTN1[Bot1<br/>Pedestrian Button<br/>GPIO13] --> CORE
+    BTN2[Bot2<br/>Violation Button<br/>GPIO12] --> CORE
+    ADCFLOW[Potentiometer<br/>Traffic Flow<br/>ADC GPIO32] --> CORE
 
-    VIOLBTN[Violation Button<br/>Bot2] -->|Simulated red-light violation| CTRL
+    CORE --> TLED[Traffic LEDs<br/>T_ledR/Y/G<br/>GPIO25/26/33]
+    CORE --> PLED[Pedestrian LEDs<br/>P_ledR/G<br/>GPIO5/18]
+    CORE --> BUZZ[Buzzer PWM<br/>GPIO27]
+    CORE --> RGB[RGB Flash LED<br/>F_ledR/G/B<br/>GPIO14/2/15]
+    CORE --> OLED[SSD1306 OLED<br/>I2C SCL=22, SDA=21]
 
-
-
+```
 ---
 
 # ⚙️ Main Features
