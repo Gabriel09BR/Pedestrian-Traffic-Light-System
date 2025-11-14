@@ -117,8 +117,6 @@ This architecture keeps the whole system responsive.
 - Add real traffic sensors (IR, camera, etc.)
 - Log violations to an SD card
 - Add Wi-Fi dashboard for remote monitoring
-- Implement FreeRTOS version for higher concurrency
-- Add energy-saving mode for nighttime
 
 
 )
