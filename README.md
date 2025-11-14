@@ -12,6 +12,19 @@ Ideal for educational use, embedded systems learning, and smart-city prototyping
 
 
 All subsystems run **simultaneously** using a **non-blocking architecture** based on FSMs.
+---
+flowchart LR
+    BTN[Pedestrian Button\n(Bot1)] -->|Request to cross| CTRL[ESP32\nControl Logic (FSM)]
+    POT[Potentiometer\n(Traffic Flow)] -->|Flow level 0.0-1.0| CTRL
+
+    CTRL -->|Red/Yellow/Green| TL[Traffic Light LEDs]
+    CTRL -->|Red/Green| PL[Pedestrian LEDs]
+    CTRL -->|Safe/Wait\nCountdown| OLED[OLED Display]
+    CTRL -->|Confirmation &\nCrossing Beeps| BUZZ[Buzzer (PWM)]
+    CTRL -->|Violation Event| FLASH[RGB LED\nWhite Flash]
+    
+    VIOLBTN[Violation Button\n(Bot2)] -->|Simulated\nred-light violation| CTRL
+
 
 ---
 
