@@ -28,7 +28,7 @@ flowchart LR
 
     VIOLBTN[Violation Button<br/>Bot2] -->|Simulated red-light violation| CTRL
 
-```
+
 
 ---
 
