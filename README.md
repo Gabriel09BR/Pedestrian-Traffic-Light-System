@@ -13,6 +13,9 @@ Ideal for educational use, embedded systems learning, and smart-city prototyping
 
 All subsystems run **simultaneously** using a **non-blocking architecture** based on FSMs.
 ---
+## Teste Mermaid
+
+```mermaid
 flowchart TB
     subgraph ESP32
         CORE[ESP32\nMicroPython FSMs]
@@ -29,7 +32,7 @@ flowchart TB
     CORE --> OLED[SSD1306 OLED\nI2C SCL=22, SDA=21]
 
 
-
+```
 
 ---
 
