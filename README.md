@@ -88,8 +88,6 @@ The recorded flow is mapped to a 0.0–1.0 value used by the FSM.
 
 ---
 
-# 🧠 Finite State Machines (FSMs)
+#  Finite State Machines (FSMs)
 
-This project uses multiple **non-blocking FSMs** running in parallel:
-
-### Traffic Light FSM
+This project uses multiple **non-blocking FSMs** running in parallel.
