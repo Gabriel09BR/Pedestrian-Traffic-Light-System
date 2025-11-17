@@ -16,8 +16,8 @@ All subsystems run **simultaneously** using a **non-blocking architecture** base
 ### 🎓 Educational Origin
 This project was originally created while I was teaching the 
 "Programming and Data Structures" course. It was designed to help 
-students understand real-world applications of **finite state machines**, 
-**modular design**, and **embedded programming**
+students understand real-world applications of finite state machines, 
+modular design, and embedded programming
 using the ESP32.
 ---
 
