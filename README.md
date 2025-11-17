@@ -13,6 +13,14 @@ Ideal for educational use, embedded systems learning, and smart-city prototyping
 
 All subsystems run **simultaneously** using a **non-blocking architecture** based on FSMs.
 ---
+### 🎓 Educational Origin
+This project was originally created while I was teaching the 
+"Programming and Data Structures" course. It was designed to help 
+students understand real-world applications of **finite state machines**, 
+**modular design**, **event-driven systems**, and **embedded programming**
+using the ESP32.
+---
+
 ## 🧱 System Block Diagram
 
 ```mermaid
